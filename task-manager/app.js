@@ -21,7 +21,7 @@ app.use(notFound);
 app.use(errorHandlerMiddleware);
 
 //
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 async function start() {
   try {
