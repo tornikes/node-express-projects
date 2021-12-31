@@ -14,9 +14,10 @@ app.use(express.json());
 // extra packages
 
 const connectDB = require("./db/connect");
+const authenticateUser = require("./middleware/authentication");
 // routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
